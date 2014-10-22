@@ -20,6 +20,14 @@
             android:name=".AyudaActivity"
             android:label="@string/title_activity_ayuda" >
         </activity>
+        <activity
+            android:name=".NuevoActivity"
+            android:label="@string/title_activity_nuevo" >
+        </activity>
+        <activity
+            android:name=".BuscarActivity"
+            android:label="@string/title_activity_buscar" >
+        </activity>
     </application>
 
 </manifest>

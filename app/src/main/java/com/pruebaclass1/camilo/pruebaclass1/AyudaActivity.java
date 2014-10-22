@@ -1,9 +1,12 @@
 package com.pruebaclass1.camilo.pruebaclass1;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 
 public class AyudaActivity extends Activity {
@@ -12,6 +15,24 @@ public class AyudaActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ayuda);
+
+        /*String nombre = getIntent().getExtras().getString("nombre");
+        int edad = getIntent().getExtras().getInt("edad");
+
+        Toast.makeText(getApplicationContext(), "Nombre: " + nombre, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Edad: " + edad, Toast.LENGTH_SHORT).show();*/
+    }
+
+    public void irNuevo(View v)
+    {
+        Intent i = new Intent(AyudaActivity.this, NuevoActivity.class);
+        startActivity(i);
+    }
+
+    public void irTemas(View v)
+    {
+        Intent i = new Intent(AyudaActivity.this, MainActivity.class);
+        startActivity(i);
     }
 
 
