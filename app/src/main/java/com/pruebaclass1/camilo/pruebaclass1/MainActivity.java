@@ -18,6 +18,18 @@ public class MainActivity extends Activity {
 
         //Button btnAyuda = (Button) findViewById(R.id.btnAyuda);
         //Button btnNuevo = (Button) findViewById(R.id.btnNuevo);
+        //Button btnAyuda = (Button) findViewById(R.id.btnAyuda);
+        //Button btnNuevo = (Button) findViewById(R.id.btnNuevo);
+        //Button btnAyuda = (Button) findViewById(R.id.btnAyuda);
+        //Button btnNuevo = (Button) findViewById(R.id.btnNuevo);
+        //Button btnAyuda = (Button) findViewById(R.id.btnAyuda);
+        //Button btnNuevo = (Button) findViewById(R.id.btnNuevo);
+        //Button btnAyuda = (Button) findViewById(R.id.btnAyuda);
+        //Button btnNuevo = (Button) findViewById(R.id.btnNuevo);
+        //Button btnAyuda = (Button) findViewById(R.id.btnAyuda);
+        //Button btnNuevo = (Button) findViewById(R.id.btnNuevo);
+        //Button btnAyuda = (Button) findViewById(R.id.btnAyuda);
+        //Button btnNuevo = (Button) findViewById(R.id.btnNuevo);
 
     }
 
