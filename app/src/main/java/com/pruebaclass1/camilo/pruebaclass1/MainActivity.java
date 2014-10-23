@@ -17,9 +17,10 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DbHelper helper = new DbHelper(this);
+        DataBaseManager manager = new DataBaseManager(this);
 
-        SQLiteDatabase db = helper.getWritableDatabase();
+        manager.insert("Consulta Sql lite", "como carajo se usa?", "Damian" );
+
     }
 
     public void irNuevo(View v)

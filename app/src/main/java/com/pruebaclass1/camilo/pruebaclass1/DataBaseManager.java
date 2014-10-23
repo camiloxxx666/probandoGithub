@@ -1,5 +1,9 @@
 package com.pruebaclass1.camilo.pruebaclass1;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+
 /**
  * Created by Damian on 22/10/2014.
  */
@@ -21,5 +25,25 @@ public class DataBaseManager
                                                      + CN_NOMBRE_PROPIETARIO + " text NOT NULL, "
                                                      + CN_TEXTO + " text NOT NULL);";
 
+    private DbHelper helper;
 
+    private SQLiteDatabase db;
+
+
+    public DataBaseManager(Context context)
+    {
+        helper = new DbHelper(context);
+        db = helper.getWritableDatabase();
+    }
+
+    public void insert(String titulo, String texto, String nombre)
+    {
+        ContentValues valores = new ContentValues();
+
+        valores.put(CN_TITULO, titulo);
+        valores.put(CN_TEXTO, texto);
+        valores.put(CN_NOMBRE_PROPIETARIO, nombre);
+
+        db.insert(TABLE_NAME, null, valores);
+    }
 }
