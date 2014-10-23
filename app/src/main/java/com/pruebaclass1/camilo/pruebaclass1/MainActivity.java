@@ -8,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
@@ -29,6 +31,11 @@ public class MainActivity extends Activity {
         tema.setContext(this); //aca le pasamos this porque el contexto es el activity!!
         ViewGroup cont = tema.renderizar();
         setContentView(cont);
+
+        /*String[] elementos = {"Rojo", "Azul", "Verde", "Amarillo", "Violeta", "Blanco"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_principal, elementos);
+        ListView lista = (ListView) findiewById(R.id.listaTemas);
+        lista.setAdapter(adapter);*/
     }
 
     public void irNuevo(View v)

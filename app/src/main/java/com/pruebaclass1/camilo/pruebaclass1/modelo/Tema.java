@@ -4,6 +4,8 @@ package com.pruebaclass1.camilo.pruebaclass1.modelo;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.pruebaclass1.camilo.pruebaclass1.R;
@@ -47,10 +49,10 @@ public class Tema {
         ViewGroup vg = null;
         LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
         vg = (ViewGroup) inflater.inflate(R.layout.activity_principal, null, true);
+
         //la siguiente linea es para especificar un elemento de la vista
         TextView texto = (TextView) vg.findViewById(R.id.textView2);//ListView listado = (ListView) vg.findViewById(R.id.idDeLaListView);//
         texto.setText(titulo);
-        //String[]
         return vg;
     }
 
