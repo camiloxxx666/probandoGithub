@@ -2,6 +2,7 @@ package com.pruebaclass1.camilo.pruebaclass1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +16,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DbHelper helper = new DbHelper(this);
+
+        SQLiteDatabase db = helper.getWritableDatabase();
     }
 
     public void irNuevo(View v)
