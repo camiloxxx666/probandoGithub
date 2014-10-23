@@ -7,7 +7,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+
+import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
 
 public class MainActivity extends Activity {
@@ -15,12 +18,17 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
-        DataBaseManager manager = new DataBaseManager(this);
+        //Bo esto de la base lo comenté por si trancaba algo no mas
+        //DataBaseManager manager = new DataBaseManager(this);
+        //manager.insert("Consulta Sql lite", "como carajo se usa?", "Damian" );
 
-        manager.insert("Consulta Sql lite", "como carajo se usa?", "Damian" );
-
+        Tema tema = new Tema();
+        tema.setTitulo("Probaandoo");
+        tema.setContext(this); //aca le pasamos this porque el contexto es el activity!!
+        ViewGroup cont = tema.renderizar();
+        setContentView(cont);
     }
 
     public void irNuevo(View v)
@@ -37,15 +45,12 @@ public class MainActivity extends Activity {
 
     public void irAyuda(View v)
     {
-        Intent i = new Intent(MainActivity.this, AyudaActivity.class);
-        //siguientes 2 lineas solo para pasar datos como ejemplo
+        Intent i = new Intent(MainActivity.this, AyudaActivity.class);//Esto es comunicacion entre controladores claramente
+        //suponiendo que pasamos datos
         i.putExtra("nombre", "Camilo");
         i.putExtra("edad", 22);
         startActivity(i);
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
