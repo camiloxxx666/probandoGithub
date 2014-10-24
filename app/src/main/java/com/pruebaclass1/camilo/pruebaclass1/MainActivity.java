@@ -17,14 +17,16 @@ import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
 public class MainActivity extends Activity {
 
+    DbHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
+        dbHelper = new DbHelper(this);
 
-        //Bo esto de la base lo comenté por si trancaba algo no mas
-        //DataBaseManager manager = new DataBaseManager(this);
-        //manager.insert("Consulta Sql lite", "como carajo se usa?", "Damian" );
+
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         Tema tema = new Tema();
         tema.setTitulo("Probaandoo");
