@@ -27,7 +27,7 @@ public class DbHelper extends SQLiteOpenHelper
 
     private static final String EMAIL = "email";
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     private Context context;
 
@@ -35,6 +35,7 @@ public class DbHelper extends SQLiteOpenHelper
     {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.context = context;
+        Message.message(context, "Se llamo al constructor de la base");
     }
 
     /*
@@ -47,10 +48,11 @@ public class DbHelper extends SQLiteOpenHelper
 
             db.execSQL("CREATE TABLE temas ("+ TABLE_ID +" INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                             TITULO + " VARCHAR(255), " +
-                                            PREGUNTA +" VARCHAR(255), " +
+                                            PREGUNTA +" VARCHAR(200), " +
                                             NOMBRE_CREADOR +" VARCHAR(255), " +
                                             FECHA_CREACION +" date, " +
                                             EMAIL +" VARCHAR(255));");
+        Message.message(context, "se llamo al onCreate, se creó la base");
 
     }
 
@@ -62,6 +64,7 @@ public class DbHelper extends SQLiteOpenHelper
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
+        Message.message(context, "se llamo al onUpgrade, se edita la base");
         db.execSQL("DROP TABLE " + TABLE_NAME + " IF EXISTS");
         onCreate(db);
     }
