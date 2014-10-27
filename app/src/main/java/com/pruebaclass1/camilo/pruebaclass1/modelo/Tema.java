@@ -60,8 +60,7 @@ public class Tema {
         LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
         vg = (ViewGroup) inflater.inflate(R.layout.activity_principal, null, true);
 
-        //la siguiente linea es para especificar un elemento de la vista
-        TextView texto = (TextView) vg.findViewById(R.id.textView2);//ListView listado = (ListView) vg.findViewById(R.id.idDeLaListView);//
+        TextView texto = (TextView) vg.findViewById(R.id.textView2);
         texto.setText(titulo);
         return vg;
     }
