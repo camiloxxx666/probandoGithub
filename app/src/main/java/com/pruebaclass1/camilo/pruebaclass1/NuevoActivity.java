@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
 
 public class NuevoActivity extends Activity {
@@ -26,6 +30,18 @@ public class NuevoActivity extends Activity {
     {
         Intent i = new Intent(NuevoActivity.this, MainActivity.class);
         startActivity(i);
+    }
+
+    public void crearTema(View v)
+    {
+        String etTitulo = (String)((EditText)findViewById(R.id.campoTitulo)).getText().toString();
+        String etPregunta = (String)((EditText)findViewById(R.id.campoPregunta)).getText().toString();
+        String etNombre = (String)((EditText)findViewById(R.id.campoNombre)).getText().toString();
+        String etFecha = (String)((EditText)findViewById(R.id.campoFecha)).getText().toString();
+        String etEmail = (String)((EditText)findViewById(R.id.campoEmail)).getText().toString();
+
+        Tema tema = new Tema(etTitulo, etPregunta, etNombre, etFecha, etEmail);
+
     }
 
 

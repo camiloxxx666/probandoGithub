@@ -54,7 +54,7 @@ public class MainActivity extends Activity {
 
     public void irAyuda(View v)
     {
-        Intent i = new Intent(MainActivity.this, AyudaActivity.class);//Esto es comunicacion entre controladores claramente
+        Intent i = new Intent(MainActivity.this, AyudaActivity.class);
         //suponiendo que pasamos datos
         i.putExtra("nombre", "Camilo");
         i.putExtra("edad", 22);

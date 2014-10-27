@@ -27,11 +27,21 @@ public class Tema {
 
     private String nombreCreador;
 
-    private Date fechaCreado;
+    private String fechaCreado;
 
     private String email;
 
     //Metodos
+    public Tema(){}
+
+    public Tema(String tit, String preg, String nom, String fecha, String email)
+    {
+        titulo = tit;
+        pregunta = preg;
+        nombreCreador = nom;
+        fechaCreado = fecha;
+        this.email = email;
+    }
 
     public void setTitulo(String tit)
     {
