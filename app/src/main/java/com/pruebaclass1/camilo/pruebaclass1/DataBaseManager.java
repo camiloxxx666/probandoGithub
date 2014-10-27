@@ -2,6 +2,7 @@ package com.pruebaclass1.camilo.pruebaclass1;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -45,5 +46,11 @@ public class DataBaseManager
         valores.put(CN_NOMBRE_PROPIETARIO, nombre);
 
         db.insert(TABLE_NAME, null, valores);
+    }
+
+    public Cursor cargarCursorTemas()
+    {
+        String[] temas = new String[]{CN_ID, CN_TITULO, CN_TEXTO};
+        return db.query(TABLE_NAME, temas, null, null, null, null, null);
     }
 }

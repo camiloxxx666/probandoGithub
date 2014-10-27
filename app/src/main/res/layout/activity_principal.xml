@@ -37,16 +37,6 @@
         android:width="120dp"
         android:textColor="#ffff0006" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Buscar"
-        android:id="@+id/btnBuscar"
-        android:width="300dp"
-        android:onClick="irBuscar"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
     <TextView
 
         android:layout_width="wrap_content"
@@ -57,5 +47,21 @@
         android:height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnTemas"/>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/lvTemas"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
+
+    <SearchView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBuscar"
+        android:onClick="irBuscar"
+        android:layout_below="@+id/btnNuevo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

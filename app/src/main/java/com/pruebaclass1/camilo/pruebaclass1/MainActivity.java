@@ -2,6 +2,8 @@ package com.pruebaclass1.camilo.pruebaclass1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.SimpleCursorAdapter;
 
 import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
@@ -18,15 +22,20 @@ import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 public class MainActivity extends Activity {
 
     DbHelper dbHelper;
+    private ListView listTemas;
+    SimpleCursorAdapter adapter;
+    Cursor cursor;
+    DataBaseManager manager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
         dbHelper = new DbHelper(this);
+        //SQLiteDatabase db = dbHelper.getWritableDatabase();
+        //manager = new DataBaseManager(this);//esto me pertenece
 
 
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         Tema tema = new Tema();
         tema.setTitulo("Probaandoo");
@@ -34,10 +43,13 @@ public class MainActivity extends Activity {
         ViewGroup cont = tema.renderizar();
         setContentView(cont);
 
-        /*String[] elementos = {"Rojo", "Azul", "Verde", "Amarillo", "Violeta", "Blanco"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_principal, elementos);
-        ListView lista = (ListView) findiewById(R.id.listaTemas);
-        lista.setAdapter(adapter);*/
+        /*listTemas = (ListView) findViewById(R.id.lvTemas);
+        String[] from = new String[]{manager.CN_TITULO, manager.CN_TEXTO};
+        int[] to = new int[]{android.R.id.text1, android.R.id.text2};//Son los id de los layouts en este caso el por defecto tho_line_list
+        cursor=manager.cargarCursorTemas();
+        adapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item, cursor, from, to, 0);
+        listTemas.setAdapter(adapter);*/
+
     }
 
     public void irNuevo(View v)

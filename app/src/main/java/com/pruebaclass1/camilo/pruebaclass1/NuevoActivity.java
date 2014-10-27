@@ -40,7 +40,7 @@ public class NuevoActivity extends Activity {
         String etFecha = (String)((EditText)findViewById(R.id.campoFecha)).getText().toString();
         String etEmail = (String)((EditText)findViewById(R.id.campoEmail)).getText().toString();
 
-        Tema tema = new Tema(etTitulo, etPregunta, etNombre, etFecha, etEmail);
+        //Tema tema = new Tema(etTitulo, etPregunta, etNombre, etFecha, etEmail);
 
     }
 
