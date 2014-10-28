@@ -20,37 +20,14 @@ public class DataBaseManager
 
     public static final String CN_NOMBRE_PROPIETARIO = "nombre_propietario";
 
-    public static final String CREATE_TABLE = " create table " + TABLE_NAME + " ( "
+    public static final String CN_EMAIL = "email";
+
+    public static final String CREATE_TABLE_TEMAS = " create table " + TABLE_NAME + " ( "
                                                      + CN_ID + " integer primary key autoincrement, "
                                                      + CN_TITULO + " text NOT NULL, "
                                                      + CN_NOMBRE_PROPIETARIO + " text NOT NULL, "
-                                                     + CN_TEXTO + " text NOT NULL);";
-
-    private DbHelper helper;
-
-    private SQLiteDatabase db;
+                                                     + CN_TEXTO + " text NOT NULL, "
+                                                     + CN_EMAIL +  " text NOT NULL);";
 
 
-    public DataBaseManager(Context context)
-    {
-        helper = new DbHelper(context);
-        db = helper.getWritableDatabase();
-    }
-
-    public void insert(String titulo, String texto, String nombre)
-    {
-        ContentValues valores = new ContentValues();
-
-        valores.put(CN_TITULO, titulo);
-        valores.put(CN_TEXTO, texto);
-        valores.put(CN_NOMBRE_PROPIETARIO, nombre);
-
-        db.insert(TABLE_NAME, null, valores);
-    }
-
-    public Cursor cargarCursorTemas()
-    {
-        String[] temas = new String[]{CN_ID, CN_TITULO, CN_TEXTO};
-        return db.query(TABLE_NAME, temas, null, null, null, null, null);
-    }
 }

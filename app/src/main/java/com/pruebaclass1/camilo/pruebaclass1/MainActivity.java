@@ -20,7 +20,6 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
-    DbHelper dbHelper;
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
@@ -34,11 +33,12 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dbHelper = new DbHelper(this);
+
         //SQLiteDatabase db = dbHelper.getWritableDatabase();
         //manager = new DataBaseManager(this);//esto me pertenece
 
-
+        DbHelper helper = new DbHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
 
         Tema tema = new Tema();
         tema.setTitulo("Probaandoo");
