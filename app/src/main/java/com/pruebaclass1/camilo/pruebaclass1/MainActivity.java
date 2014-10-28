@@ -2,12 +2,15 @@ package com.pruebaclass1.camilo.pruebaclass1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
@@ -17,14 +20,29 @@ public class MainActivity extends Activity {
 
     //DataBaseManager manager;
 
+    private DataBaseManager manager;
+    private Cursor cursor;
+    private ListView list;
+    private SimpleCursorAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DataBaseManager manager = new DataBaseManager(this);
+        manager = new DataBaseManager(this);
+        list = (ListView) findViewById(R.id.campoNombre); //aca mande cualquiera, hay que crear un listView y pasarle el id aca, no pudde crear xq no me anda la vista de diseño
+
 
         manager.insertar_tema("duda sqlite", "damian", "como se usa", "damian@gmail.com", "28/12/2014");
+
+        String[] from = new String[]{manager.CN_NOMBRE_PROPIETARIO_TEMAS, manager.CN_TEXTO_TEMAS};
+
+        int[] to = new int[]{android.R.id.text1, android.R.id.text2}; //esos 2 text son los que trae el adapter por defecto
+
+        cursor = manager.getTemas();
+
+        adapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item, cursor,from, to, 0);
+        list.setAdapter(adapter);
 
         Tema tema = new Tema();
         tema.setContext(this);
