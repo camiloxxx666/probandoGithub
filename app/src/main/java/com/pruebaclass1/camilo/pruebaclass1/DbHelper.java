@@ -27,6 +27,7 @@ public class DbHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db)
     {
         db.execSQL(DataBaseManager.CREATE_TABLE_TEMAS);
+        db.execSQL(DataBaseManager.CREATE_TABLE_COMENTARIO);
     }
 
     @Override

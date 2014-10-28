@@ -7,15 +7,13 @@ import java.util.Date;
  */
 public class Comentario {
 
-    private Integer ID;
-
-    private Integer temaID;
+    private Integer id;
 
     private String texto;
 
-    private String nombreCreador;
+    private String nombre_propietario;
 
-    private Date fechaCreado;
+    private String fechaCreado;
 
     private String email;
 
