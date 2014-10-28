@@ -15,16 +15,13 @@ import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
 public class MainActivity extends Activity {
 
-    //DataBaseManager manager;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        DataBaseManager manager = new DataBaseManager(this);
+        //DataBaseManager manager = new DataBaseManager(this);
 
-        manager.insertar_tema("duda sqlite", "damian", "como se usa", "damian@gmail.com", "28/12/2014");
+        //manager.insertar_tema("duda sqlite", "damian", "como se usa", "damian@gmail.com", "28/12/2014");
 
         Tema tema = new Tema();
         tema.setContext(this);

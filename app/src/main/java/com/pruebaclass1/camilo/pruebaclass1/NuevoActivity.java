@@ -40,7 +40,11 @@ public class NuevoActivity extends Activity {
         String etFecha = (String)((EditText)findViewById(R.id.campoFecha)).getText().toString();
         String etEmail = (String)((EditText)findViewById(R.id.campoEmail)).getText().toString();
 
-        //Tema tema = new Tema(etTitulo, etPregunta, etNombre, etFecha, etEmail);
+        DataBaseManager manager = new DataBaseManager(this.getApplicationContext());
+        manager.insertar_tema(etTitulo, etNombre, etPregunta, etEmail, etFecha);
+
+        irTemas(v);
+
 
     }
 

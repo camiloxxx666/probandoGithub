@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
 
+import com.pruebaclass1.camilo.pruebaclass1.DataBaseManager;
 import com.pruebaclass1.camilo.pruebaclass1.R;
 import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 import com.pruebaclass1.camilo.pruebaclass1.utilidades.ExpandableListAdapter;
@@ -146,5 +147,9 @@ public class Tema {
         listDataChild.put(listDataHeader.get(2), comingSoon);
         listDataChild.put(listDataHeader.get(3), blabla);
     }
+
+    //------------------------------------------------------------------------------------------//
+
+
 
 }
