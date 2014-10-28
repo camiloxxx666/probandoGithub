@@ -15,16 +15,16 @@ import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
 public class MainActivity extends Activity {
 
-    DbHelper dbHelper;
     //DataBaseManager manager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dbHelper = new DbHelper(this);
         //SQLiteDatabase db = dbHelper.getWritableDatabase();
         //manager = new DataBaseManager(this);//esto me pertenece
+        DbHelper helper = new DbHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
 
         Tema tema = new Tema();
         tema.setContext(this);
