@@ -22,16 +22,7 @@ public class DataBaseManager
 
     public static final String CN_EMAIL_TEMAS = "email";
 
-<<<<<<< HEAD
     public static final String CN_FECHA_TEMAS = "fechaCreado";
-=======
-    public static final String CREATE_TABLE_TEMAS = " create table " + TABLE_NAME + " ( "
-            + CN_ID + " integer primary key autoincrement, "
-            + CN_TITULO + " text NOT NULL, "
-            + CN_NOMBRE_PROPIETARIO + " text NOT NULL, "
-            + CN_TEXTO + " text NOT NULL, "
-            + CN_EMAIL +  " text NOT NULL);";
->>>>>>> origin/master
 
     public static final String CREATE_TABLE_TEMAS = " create table " + TABLE_NAME_TEMAS + " ( "
                                                      + CN_ID_TEMAS + " integer primary key autoincrement, "
