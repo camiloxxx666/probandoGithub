@@ -21,10 +21,10 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //SQLiteDatabase db = dbHelper.getWritableDatabase();
-        //manager = new DataBaseManager(this);//esto me pertenece
-        DbHelper helper = new DbHelper(this);
-        SQLiteDatabase db = helper.getWritableDatabase();
+
+        DataBaseManager manager = new DataBaseManager(this);
+
+        manager.insertar_tema("duda sqlite", "damian", "como se usa", "damian@gmail.com", "28/12/2014");
 
         Tema tema = new Tema();
         tema.setContext(this);

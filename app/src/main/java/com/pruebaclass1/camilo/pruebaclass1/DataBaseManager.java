@@ -55,6 +55,26 @@ public class DataBaseManager
                                                          + CN_EMAIL_COMENTARIO + " text NOT NULL, "
                                                          + CN_FECHA_COMENTARIO + " text NOT NULL, "
                                                          + "FOREIGN KEY (" + CN_TEMA_FK_COMENTARIO +") REFERENCES " + TABLE_NAME_TEMAS +" (" + CN_ID_TEMAS + ") );";
+    private DbHelper helper;
+
+    private SQLiteDatabase db;
+
+    public DataBaseManager(Context context)
+    {
+        helper = new DbHelper(context);
+        db = helper.getWritableDatabase();
+    }
+
+    public void insertar_tema(String titulo, String nombrePropietario, String texto, String email, String fecha )
+    {
+        ContentValues valores = new ContentValues();
+        valores.put(CN_TITULO_TEMAS, titulo);
+        valores.put(CN_NOMBRE_PROPIETARIO_TEMAS, nombrePropietario);
+        valores.put(CN_TEXTO_TEMAS, texto);
+        valores.put(CN_EMAIL_TEMAS, email);
+        valores.put(CN_FECHA_TEMAS, fecha);
 
 
+        db.insert(TABLE_NAME_TEMAS, null, valores);
+    }
 }
