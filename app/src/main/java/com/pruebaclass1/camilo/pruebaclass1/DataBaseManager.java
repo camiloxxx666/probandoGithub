@@ -77,4 +77,10 @@ public class DataBaseManager
 
         db.insert(TABLE_NAME_TEMAS, null, valores);
     }
+
+    public Cursor traer_temas()
+    {
+        String[] temas = new String[]{CN_ID_TEMAS, CN_TITULO_TEMAS, CN_TEXTO_TEMAS};
+        return db.query(TABLE_NAME_TEMAS, temas, null, null, null, null, null);
+    }
 }

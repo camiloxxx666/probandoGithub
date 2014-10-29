@@ -4,6 +4,7 @@ package com.pruebaclass1.camilo.pruebaclass1.modelo;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,6 +27,8 @@ import java.util.List;
  * Created by Camilo on 23/10/2014.
  */
 public class Tema {
+    ExpandableListView elv;
+
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
@@ -70,6 +73,19 @@ public class Tema {
     //probando
     public ViewGroup renderizar()
     {
+        /*ViewGroup vg = null;
+        LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
+        vg = (ViewGroup) inflater.inflate(R.layout.activity_principal, null, true);
+
+        DataBaseManager manager = new DataBaseManager(ctx);
+        Cursor cursorTemas = manager.traer_temas();
+
+        elv = (ExpandableListView) vg.findViewById(R.id.lvExp);
+
+
+
+
+        return vg;*/
         ViewGroup vg = null;
         LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
 

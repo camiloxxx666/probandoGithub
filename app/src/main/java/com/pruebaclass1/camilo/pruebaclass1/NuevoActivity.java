@@ -34,17 +34,44 @@ public class NuevoActivity extends Activity {
 
     public void crearTema(View v)
     {
-        String etTitulo = (String)((EditText)findViewById(R.id.campoTitulo)).getText().toString();
-        String etPregunta = (String)((EditText)findViewById(R.id.campoPregunta)).getText().toString();
-        String etNombre = (String)((EditText)findViewById(R.id.campoNombre)).getText().toString();
-        String etFecha = (String)((EditText)findViewById(R.id.campoFecha)).getText().toString();
-        String etEmail = (String)((EditText)findViewById(R.id.campoEmail)).getText().toString();
+        EditText etTitulo = (EditText)findViewById(R.id.campoTitulo);
+        EditText etPregunta = (EditText)findViewById(R.id.campoPregunta);
+        EditText etNombre = (EditText)findViewById(R.id.campoNombre);
+        EditText etFecha = (EditText)findViewById(R.id.campoFecha);
+        EditText etEmail = (EditText)findViewById(R.id.campoEmail);
 
-        DataBaseManager manager = new DataBaseManager(this.getApplicationContext());
-        manager.insertar_tema(etTitulo, etNombre, etPregunta, etEmail, etFecha);
+        String stTitulo = etTitulo.getText().toString();
+        String stPregunta = etPregunta.getText().toString();
+        String stNombre = etNombre.getText().toString();
+        String stFecha = etFecha.getText().toString();
+        String stEmail = etEmail.getText().toString();
 
-        irTemas(v);
 
+        if (stTitulo.length() == 0 || stPregunta.length() == 0 || stNombre.length() == 0 || stFecha.length() == 0 || stEmail.length() == 0)
+        {
+            if(stTitulo.length() == 0)
+                etTitulo.setError("Debes ingresar un Titulo");
+
+            if(stPregunta.length() == 0)
+                etPregunta.setError("Debes ingresar una Pregunta");
+
+            if(stNombre.length() == 0)
+                etNombre.setError("Debes ingresar tu nombre");
+
+            if(stFecha.length() == 0)
+                etFecha.setError("Es obligatoria la fecha de hoy");
+
+            if(stEmail.length() == 0)
+                etEmail.setError("Debes ingresar tu E-mail");
+        }
+
+        else {
+
+            DataBaseManager manager = new DataBaseManager(this.getApplicationContext());
+            manager.insertar_tema(stTitulo, stNombre, stPregunta, stEmail, stFecha);
+
+            irTemas(v);
+        }
 
     }
 
