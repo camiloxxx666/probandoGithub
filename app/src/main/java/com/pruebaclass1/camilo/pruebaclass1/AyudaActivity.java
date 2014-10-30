@@ -6,21 +6,43 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 
 public class AyudaActivity extends Activity {
 
+    private WebView webViewAyuda;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ayuda);
 
-        /*String nombre = getIntent().getExtras().getString("nombre");
-        int edad = getIntent().getExtras().getInt("edad");
+        webViewAyuda = (WebView) findViewById(R.id.wvAyuda);
 
-        Toast.makeText(getApplicationContext(), "Nombre: " + nombre, Toast.LENGTH_SHORT).show();
-        Toast.makeText(getApplicationContext(), "Edad: " + edad, Toast.LENGTH_SHORT).show();*/
+        //Activar javascript
+        WebSettings webSettings = webViewAyuda.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        String pagina = "<html>" +
+                "<head>" +
+                "<title>bla</title>" +
+                "</head>" +
+                "<body>" +
+                "<p1>Integrantes:</p1><br/></br>" +
+                "<p2>Camilo Orquera</p2><br/><p2>Damián Salaverry</p2><br/><p2>Lautaro Acosta</p2>" +
+                "</body>" +
+                "</html>";
+
+        webViewAyuda.loadData(pagina, "text/html; charset=UTF-8", null);
+
+        /*String nombre = getIntent().getExtras().getString("nombre");
+        int edad = getIntent().getExtras().getInt("edad");*/
+
     }
 
     public void irNuevo(View v)
