@@ -16,11 +16,8 @@ import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
 
 
-public class MainActivity extends Activity {
-
-    //DataBaseManager manager;
-
-    private DataBaseManager manager;
+public class MainActivity extends Activity
+{
     private Cursor cursor;
     private ListView list;
     private SimpleCursorAdapter adapter;
@@ -28,20 +25,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        /*manager = new DataBaseManager(this);
-        list = (ListView) findViewById(R.id.campoNombre); //aca mande cualquiera, hay que crear un listView y pasarle el id aca, no pudde crear xq no me anda la vista de diseño
-
-
-
-        String[] from = new String[]{manager.CN_NOMBRE_PROPIETARIO_TEMAS, manager.CN_TEXTO_TEMAS};
-
-        int[] to = new int[]{android.R.id.text1, android.R.id.text2}; //esos 2 text son los que trae el adapter por defecto
-
-        cursor = manager.getTemas();
-
-        adapter = new SimpleCursorAdapter(this, android.R.layout.two_line_list_item, cursor,from, to, 0);
-        list.setAdapter(adapter);*/
 
         Tema tema = new Tema();
         tema.setContext(this);

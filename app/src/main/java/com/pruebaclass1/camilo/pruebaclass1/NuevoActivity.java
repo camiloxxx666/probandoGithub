@@ -67,7 +67,7 @@ public class NuevoActivity extends Activity {
 
         else {
 
-            DataBaseManager manager = new DataBaseManager(this.getApplicationContext());
+            DataBaseTemasManager manager = new DataBaseTemasManager(this.getApplicationContext());
             manager.insertar_tema(stTitulo, stNombre, stPregunta, stEmail, stFecha);
 
             irTemas(v);
