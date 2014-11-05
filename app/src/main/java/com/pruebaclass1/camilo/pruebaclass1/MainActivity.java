@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
@@ -18,18 +19,43 @@ import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
 public class MainActivity extends Activity
 {
-    private Cursor cursor;
-    private ListView list;
-    private SimpleCursorAdapter adapter;
+
+    DataBaseTemasManager manager;
+    ListView listview;
+    Cursor cursorTemas;
+    SimpleCursorAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_principal);
 
-        Tema tema = new Tema();
+        manager = new DataBaseTemasManager(this);
+
+        listview = (ListView) findViewById(R.id.listView);
+
+        String[] from = new String[]{"titulo", "texto"};
+        int[] to = new int[]{R.id.textView_superior, R.id.textView_inferior};
+
+        cursorTemas = manager.getTemas();
+
+
+        //int prueba1 = cursorTemas.getColumnCount();
+        //int prueba2 = cursorTemas.getCount();
+
+        //cursorTemas.moveToFirst();
+        //String prueba = cursorTemas.getString(cursorTemas.getColumnIndex("titulo"));
+
+        //Toast.makeText(getApplicationContext(), prueba, Toast.LENGTH_LONG).show();
+
+        adapter = new SimpleCursorAdapter(this, R.layout.entrada, cursorTemas, from, to, 0);
+
+        listview.setAdapter(adapter);
+
+        /*Tema tema = new Tema();
         tema.setContext(this);
         ViewGroup cont = tema.renderizar();
-        setContentView(cont);
+        setContentView(cont);*/
 
     }
 

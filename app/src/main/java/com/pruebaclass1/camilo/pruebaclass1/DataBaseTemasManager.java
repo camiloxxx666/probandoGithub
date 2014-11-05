@@ -13,7 +13,7 @@ public class DataBaseTemasManager
 
     public static final String TABLE_NAME_TEMAS = "temas";
 
-    public static final String CN_ID_TEMAS = "id";
+    public static final String ID_TEMAS = "_id";
 
     public static final String CN_TITULO_TEMAS = "titulo";
 
@@ -26,7 +26,7 @@ public class DataBaseTemasManager
     public static final String CN_FECHA_TEMAS = "fechaCreado";
 
     public static final String CREATE_TABLE_TEMAS = " create table " + TABLE_NAME_TEMAS + " ( "
-                                                    + CN_ID_TEMAS + " integer primary key autoincrement, "
+                                                    + ID_TEMAS + " integer primary key autoincrement, "
                                                     + CN_TITULO_TEMAS + " text NOT NULL, "
                                                     + CN_NOMBRE_PROPIETARIO_TEMAS + " text NOT NULL, "
                                                     + CN_TEXTO_TEMAS + " text NOT NULL, "
@@ -57,7 +57,7 @@ public class DataBaseTemasManager
 
     public Cursor getTemas()
     {
-        String[] columnas = new String[]{CN_ID_TEMAS, CN_TITULO_TEMAS ,CN_NOMBRE_PROPIETARIO_TEMAS, CN_TEXTO_TEMAS, CN_EMAIL_TEMAS};
+        String[] columnas = new String[]{ID_TEMAS, CN_TITULO_TEMAS ,CN_NOMBRE_PROPIETARIO_TEMAS, CN_TEXTO_TEMAS, CN_EMAIL_TEMAS};
 
         return db.query(TABLE_NAME_TEMAS, columnas, null,null,null,null,null,null);
     }

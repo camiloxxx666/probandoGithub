@@ -30,7 +30,7 @@
         </activity>
         <activity
             android:name=".NuevoActivity"
-            android:label="@string/title_activity_nuevo" >
+            android:label="@string/title_activity_nuevo">
         </activity>
         <activity
             android:name=".BuscarActivity"

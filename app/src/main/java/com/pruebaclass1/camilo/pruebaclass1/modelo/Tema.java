@@ -8,30 +8,27 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
+import com.pruebaclass1.camilo.pruebaclass1.DataBaseComentariosManager;
+import com.pruebaclass1.camilo.pruebaclass1.DataBaseTemasManager;
 import com.pruebaclass1.camilo.pruebaclass1.R;
-import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
-import com.pruebaclass1.camilo.pruebaclass1.utilidades.ExpandableListAdapter;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 /**
  * Created by Camilo on 23/10/2014.
  */
 public class Tema {
-    ExpandableListView elv;
 
-    ExpandableListAdapter listAdapter;
-    ExpandableListView expListView;
-    List<String> listDataHeader;
-    HashMap<String, List<String>> listDataChild;
+
+    private SimpleCursorAdapter adapter;
+    private Cursor cursorTemas;
+    private ListView listView;
+    private DataBaseTemasManager manager;
 
     private Integer ID;
 
@@ -72,99 +69,28 @@ public class Tema {
     //probando
     public ViewGroup renderizar()
     {
-        /*ViewGroup vg = null;
-        LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
-        vg = (ViewGroup) inflater.inflate(R.layout.activity_principal, null, true);
-
-        DataBaseManager manager = new DataBaseManager(ctx);
-        Cursor cursorTemas = manager.traer_temas();
-
-        elv = (ExpandableListView) vg.findViewById(R.id.lvExp);
-
-
-
-
-        return vg;*/
         ViewGroup vg = null;
+
         LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
-
         vg = (ViewGroup) inflater.inflate(R.layout.activity_principal, null, true);
-        expListView = (ExpandableListView) vg.findViewById(R.id.lvExp);
 
-        prepareListData();
+        listView = (ListView) vg.findViewById(R.id.listView);
 
-        listAdapter = new ExpandableListAdapter(ctx, listDataHeader, listDataChild);
+        manager = new DataBaseTemasManager(ctx);
 
-        expListView.setAdapter(listAdapter);
+        cursorTemas = manager.getTemas();
+
+        String[] from = new String[]{manager.CN_TITULO_TEMAS, manager.CN_TEXTO_TEMAS};
+
+        int[] to = {R.id.textView_superior, R.id.textView_inferior};
+
+
+        adapter = new SimpleCursorAdapter(ctx, R.layout.entrada, cursorTemas, from, to, 0);//contecto, layoutID, cursor, from, to
+        listView.setAdapter(adapter);
+
 
         return vg;
+
     }
-
-    private void prepareListData() {
-        listDataHeader = new ArrayList<String>();
-        listDataChild = new HashMap<String, List<String>>();
-
-        // Adding child data
-        listDataHeader.add("Top 250");
-        listDataHeader.add("Now Showing");
-        listDataHeader.add("Coming Soon..");
-        listDataHeader.add("blabla");
-
-        // Adding child data
-        List<String> top250 = new ArrayList<String>();
-        top250.add("The Shawshank Redemption");
-        top250.add("The Godfather");
-        top250.add("The Godfather: Part II");
-        top250.add("Pulp Fiction");
-        top250.add("The Good, the Bad and the Ugly");
-        top250.add("The Dark Knight");
-        top250.add("12 Angry Men");
-
-        List<String> nowShowing = new ArrayList<String>();
-        nowShowing.add("The Conjuring");
-        nowShowing.add("Despicable Me 2");
-        nowShowing.add("Turbo");
-        nowShowing.add("Grown Ups 2");
-        nowShowing.add("Red 2");
-        nowShowing.add("The Wolverine");
-
-        List<String> comingSoon = new ArrayList<String>();
-        comingSoon.add("2 Guns");
-        comingSoon.add("The Smurfs 2");
-        comingSoon.add("The Spectacular Now");
-        comingSoon.add("The Canyons");
-        comingSoon.add("Europa Report");
-
-        List<String> blabla = new ArrayList<String>();
-        blabla.add("2 Guns");
-        blabla.add("The Smurfs 2");
-        blabla.add("The Spectacular Now");
-        blabla.add("The Canyons");
-        blabla.add("Europa Report");
-        blabla.add("2 Guns");
-        blabla.add("The Smurfs 2");
-        blabla.add("The Spectacular Now");
-        blabla.add("The Canyons");
-        blabla.add("Europa Report");
-        blabla.add("2 Guns");
-        blabla.add("The Smurfs 2");
-        blabla.add("The Spectacular Now");
-        blabla.add("The Canyons");
-        blabla.add("Europa Report");
-        blabla.add("2 Guns");
-        blabla.add("The Smurfs 2");
-        blabla.add("The Spectacular Now");
-        blabla.add("The Canyons");
-        blabla.add("Europa Report");
-
-        listDataChild.put(listDataHeader.get(0), top250);
-        listDataChild.put(listDataHeader.get(1), nowShowing);
-        listDataChild.put(listDataHeader.get(2), comingSoon);
-        listDataChild.put(listDataHeader.get(3), blabla);
-    }
-
-    //------------------------------------------------------------------------------------------//
-
-
 
 }
