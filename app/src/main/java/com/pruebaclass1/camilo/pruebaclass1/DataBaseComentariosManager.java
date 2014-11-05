@@ -1,5 +1,6 @@
 package com.pruebaclass1.camilo.pruebaclass1;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -26,7 +27,7 @@ public class DataBaseComentariosManager
     // nombre y identificador de la tabla temas
     public static final String TABLE_NAME_TEMAS = "temas";
 
-    public static final String CN_ID_TEMAS = "id";
+    public static final String CN_ID_TEMAS = "_id";
 
     public static final String CREATE_TABLE_COMENTARIO = " create table " + TABLE_NAME_COMENTARIO + " ( "
                                                         + CN_TEMA_FK_COMENTARIO + " integer NOT NULL, "
@@ -47,10 +48,24 @@ public class DataBaseComentariosManager
         db = helper.getWritableDatabase();
     }
 
+    public void insertar_comentario(String nombre, String respuesta, String fecha, String email, String idTema )
+    {
+        ContentValues valores = new ContentValues();
+        valores.put(CN_PROPIETARIO_COMENTARIO, nombre);
+        valores.put(CN_TEXTO_COMENTARIO, respuesta);
+        valores.put(CN_FECHA_COMENTARIO, fecha);
+        valores.put(CN_EMAIL_COMENTARIO, email);
+        valores.put(CN_ID_TEMAS, idTema);
+        valores.put(CN_TEMA_FK_COMENTARIO, idTema);
+
+
+        db.insert(TABLE_NAME_COMENTARIO, null, valores);
+    }
+
     public Cursor traerRespuestas(String idTema)
     {
         String[] columnas = new String[]{ID_COMENTARIO, CN_TEXTO_COMENTARIO};
-        return db.query(TABLE_NAME_COMENTARIO,columnas,ID_COMENTARIO + "=?",new String[]{idTema},null,null,null);
+        return db.query(TABLE_NAME_COMENTARIO,columnas,CN_ID_TEMAS + "=?",new String[]{idTema},null,null,null);
     }
 
     public Cursor traerUsuarioRespuesta(String idRespuesta)
@@ -58,4 +73,5 @@ public class DataBaseComentariosManager
         String[] columnas = new String[]{ID_COMENTARIO, CN_PROPIETARIO_COMENTARIO, CN_EMAIL_COMENTARIO, CN_FECHA_COMENTARIO};
         return db.query(TABLE_NAME_COMENTARIO,columnas,ID_COMENTARIO + "=?",new String[]{idRespuesta},null,null,null);
     }
+
 }
