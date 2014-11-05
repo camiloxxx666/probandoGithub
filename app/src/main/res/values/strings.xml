@@ -7,5 +7,7 @@
     <string name="title_activity_ayuda">AyudaActivity</string>
     <string name="title_activity_nuevo">NuevoActivity</string>
     <string name="title_activity_buscar">BuscarActivity</string>
+    <string name="title_activity_comentarios">ComentariosActivity</string>
+    <string name="title_activity_usuario">UsuarioActivity</string>
 
 </resources>

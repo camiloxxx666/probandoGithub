@@ -9,7 +9,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -77,20 +79,18 @@ public class Tema {
         listView = (ListView) vg.findViewById(R.id.listView);
 
         manager = new DataBaseTemasManager(ctx);
-
         cursorTemas = manager.getTemas();
 
         String[] from = new String[]{"titulo", "texto"};
-
         int[] to = {R.id.textView_superior, R.id.textView_inferior};
-
 
         adapter = new SimpleCursorAdapter(ctx, R.layout.entrada, cursorTemas, from, to, 0);//contecto, layoutID, cursor, from, to
         listView.setAdapter(adapter);
 
-
         return vg;
 
     }
+
+
 
 }
