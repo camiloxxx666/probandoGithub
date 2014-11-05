@@ -1,26 +1,44 @@
 package com.pruebaclass1.camilo.pruebaclass1;
 
 import android.app.Activity;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class UsuarioActivity extends Activity {
 
-    private String valorRecibido;
-    private TextView viewRecibido;
+    String valorRecibido;
+    private TextView nombre;
+    private TextView email;
+    private TextView fecha;
+    DataBaseTemasManager manager;
+    Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario);
 
+        manager = new DataBaseTemasManager(this);
         valorRecibido=getIntent().getStringExtra(MainActivity.ID_PASAR);
 
-        viewRecibido = (TextView) findViewById(R.id.textPasado2);
+        //Toast.makeText(getApplicationContext(), "Has seleccionado: "+ valorRecibido, Toast.LENGTH_LONG).show();
 
-        viewRecibido.setText("El id del comentario es: "+valorRecibido);
+        cursor = manager.traerUsuarioTema(valorRecibido);
+
+        cursor.moveToPosition(0);//Linea vital
+        String name = cursor.getString(cursor.getColumnIndex("nombreCreador"));
+        String fe = cursor.getString(cursor.getColumnIndex("fechaCreado"));
+
+        nombre = (TextView) findViewById(R.id.textView);
+        nombre.setText("Nombre del usuario: "+name);
+
+        fecha = (TextView) findViewById(R.id.textView2);
+        fecha.setText("Fecha en que se creó el tema: "+fe);
+
 
     }
 

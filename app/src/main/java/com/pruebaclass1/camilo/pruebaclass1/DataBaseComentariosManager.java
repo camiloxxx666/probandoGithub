@@ -1,6 +1,7 @@
 package com.pruebaclass1.camilo.pruebaclass1;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -44,5 +45,17 @@ public class DataBaseComentariosManager
     public DataBaseComentariosManager(Context context) {
         helper = new DbHelper(context);
         db = helper.getWritableDatabase();
+    }
+
+    public Cursor traerRespuestas(String idTema)
+    {
+        String[] columnas = new String[]{ID_COMENTARIO, CN_TEXTO_COMENTARIO};
+        return db.query(TABLE_NAME_COMENTARIO,columnas,ID_COMENTARIO + "=?",new String[]{idTema},null,null,null);
+    }
+
+    public Cursor traerUsuarioRespuesta(String idRespuesta)
+    {
+        String[] columnas = new String[]{ID_COMENTARIO, CN_PROPIETARIO_COMENTARIO, CN_EMAIL_COMENTARIO, CN_FECHA_COMENTARIO};
+        return db.query(TABLE_NAME_COMENTARIO,columnas,ID_COMENTARIO + "=?",new String[]{idRespuesta},null,null,null);
     }
 }

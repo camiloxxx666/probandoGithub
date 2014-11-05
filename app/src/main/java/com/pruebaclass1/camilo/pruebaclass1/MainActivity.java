@@ -21,10 +21,7 @@ import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 public class MainActivity extends Activity
 {
     public final static String ID_PASAR = "com.pruebaclass1.camilo.pruebaclass1._id";
-    DataBaseTemasManager manager;
     ListView listview;
-    Cursor cursorTemas;
-    SimpleCursorAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

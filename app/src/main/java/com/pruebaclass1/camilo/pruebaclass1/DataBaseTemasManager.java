@@ -61,4 +61,10 @@ public class DataBaseTemasManager
 
         return db.query(TABLE_NAME_TEMAS, columnas, null,null,null,null,null,null);
     }
+
+    public Cursor traerUsuarioTema(String idTema)
+    {
+        String[] columnas = new String[]{CN_NOMBRE_PROPIETARIO_TEMAS, CN_FECHA_TEMAS};
+        return db.query(TABLE_NAME_TEMAS,columnas,ID_TEMAS + "=?",new String[]{idTema},null,null,null);
+    }
 }
