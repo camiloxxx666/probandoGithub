@@ -10,7 +10,7 @@ public class DataBaseComentariosManager
 {
     public static final String TABLE_NAME_COMENTARIO = "comentario";
 
-    public static final String CN_ID_COMENTARIO = "id";
+    public static final String ID_COMENTARIO = "_id";
 
     public static final String CN_PROPIETARIO_COMENTARIO = "nombrePropietario";
 
@@ -29,7 +29,7 @@ public class DataBaseComentariosManager
 
     public static final String CREATE_TABLE_COMENTARIO = " create table " + TABLE_NAME_COMENTARIO + " ( "
                                                         + CN_TEMA_FK_COMENTARIO + " integer NOT NULL, "
-                                                        + CN_ID_COMENTARIO + " integer primary key autoincrement, "
+                                                        + ID_COMENTARIO + " integer primary key autoincrement, "
                                                         + CN_PROPIETARIO_COMENTARIO + " text NOT NULL, "
                                                         + CN_TEXTO_COMENTARIO + " text NOT NULL, "
                                                         + CN_EMAIL_COMENTARIO + " text NOT NULL, "

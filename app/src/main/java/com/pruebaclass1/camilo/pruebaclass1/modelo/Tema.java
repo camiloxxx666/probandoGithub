@@ -80,7 +80,7 @@ public class Tema {
 
         cursorTemas = manager.getTemas();
 
-        String[] from = new String[]{manager.CN_TITULO_TEMAS, manager.CN_TEXTO_TEMAS};
+        String[] from = new String[]{"titulo", "texto"};
 
         int[] to = {R.id.textView_superior, R.id.textView_inferior};
 
