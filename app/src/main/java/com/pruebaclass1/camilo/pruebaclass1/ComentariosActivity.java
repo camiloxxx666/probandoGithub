@@ -1,6 +1,7 @@
 package com.pruebaclass1.camilo.pruebaclass1;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
@@ -75,7 +76,8 @@ public class ComentariosActivity extends Activity {
         else {
             manager.insertar_comentario(stNombre, stRespuesta, stFecha, stEmail, valorRecibido);
 
-            //irTemas(v); ir algun lado
+            Intent i = new Intent(ComentariosActivity.this, MainActivity.class);
+            startActivity(i);
         }
 
     }
@@ -91,7 +93,7 @@ public class ComentariosActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.comentarios, menu);
+        getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
