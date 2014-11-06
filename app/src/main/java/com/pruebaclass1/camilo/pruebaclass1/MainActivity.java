@@ -20,7 +20,7 @@ import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
 public class MainActivity extends Activity
 {
-    public final static String ID_PASAR = "com.pruebaclass1.camilo.pruebaclass1._id";
+    public final static String ID_TEMA_PASAR = "com.pruebaclass1.camilo.pruebaclass1._id";
     ListView listview;
 
     @Override
@@ -39,7 +39,7 @@ public class MainActivity extends Activity
             public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
                                            int pos, long id) {
                 Intent i = new Intent(MainActivity.this, UsuarioActivity.class);
-                i.putExtra(ID_PASAR, String.valueOf(id));
+                i.putExtra(ID_TEMA_PASAR, String.valueOf(id));
                 startActivity(i);
 
                 return true;
@@ -54,7 +54,7 @@ public class MainActivity extends Activity
         public void onItemClick(AdapterView<?> parent, View view, int position, long id )
         {
             Intent i = new Intent(MainActivity.this, ComentariosActivity.class);
-            i.putExtra(ID_PASAR, String.valueOf(id));
+            i.putExtra(ID_TEMA_PASAR, String.valueOf(id));
             startActivity(i);
 
         }

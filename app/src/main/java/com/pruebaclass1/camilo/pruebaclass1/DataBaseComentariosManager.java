@@ -70,7 +70,7 @@ public class DataBaseComentariosManager
 
     public Cursor traerUsuarioRespuesta(String idRespuesta)
     {
-        String[] columnas = new String[]{ID_COMENTARIO, CN_PROPIETARIO_COMENTARIO, CN_EMAIL_COMENTARIO, CN_FECHA_COMENTARIO};
+        String[] columnas = new String[]{ID_COMENTARIO, CN_PROPIETARIO_COMENTARIO, CN_FECHA_COMENTARIO};
         return db.query(TABLE_NAME_COMENTARIO,columnas,ID_COMENTARIO + "=?",new String[]{idRespuesta},null,null,null);
     }
 

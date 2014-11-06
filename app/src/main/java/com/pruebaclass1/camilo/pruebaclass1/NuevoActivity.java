@@ -20,11 +20,6 @@ public class NuevoActivity extends Activity {
         setContentView(R.layout.activity_nuevo);//Acá vamos a llamar al objeto, y el objeto va a traer el view de nuevo
     }
 
-    public void irAyuda(View v)
-    {
-        Intent i = new Intent(NuevoActivity.this, AyudaActivity.class);
-        startActivity(i);
-    }
 
     public void irTemas(View v)
     {

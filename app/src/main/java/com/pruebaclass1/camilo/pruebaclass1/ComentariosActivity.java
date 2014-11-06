@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 
 public class ComentariosActivity extends Activity {
 
+    public final static String ID_COMENTARIO_PASAR = "com.pruebaclass1.camilo.pruebaclass1._id";
     String valorRecibido;
     DataBaseComentariosManager manager;
     Cursor cursor;
@@ -29,7 +31,7 @@ public class ComentariosActivity extends Activity {
         listView = (ListView) findViewById(R.id.listView);
 
         manager = new DataBaseComentariosManager(this);
-        valorRecibido=getIntent().getStringExtra(MainActivity.ID_PASAR);
+        valorRecibido=getIntent().getStringExtra(MainActivity.ID_TEMA_PASAR);
 
         cursor = manager.traerRespuestas(valorRecibido);
 
@@ -38,6 +40,18 @@ public class ComentariosActivity extends Activity {
 
         adapter = new SimpleCursorAdapter(this, R.layout.entrada2, cursor, from, to, 0);//contecto, layoutID, cursor, from, to
         listView.setAdapter(adapter);
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+                                           int pos, long id) {
+                Intent i = new Intent(ComentariosActivity.this, UsuarioRespuestaActivity.class);
+                i.putExtra(ID_COMENTARIO_PASAR, String.valueOf(id));
+                startActivity(i);
+
+                return true;
+            }
+        });
 
     }
 
