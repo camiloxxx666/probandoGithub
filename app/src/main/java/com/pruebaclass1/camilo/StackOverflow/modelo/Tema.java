@@ -1,24 +1,16 @@
-package com.pruebaclass1.camilo.pruebaclass1.modelo;
+package com.pruebaclass1.camilo.StackOverflow.modelo;
 
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
-import com.pruebaclass1.camilo.pruebaclass1.DataBaseComentariosManager;
-import com.pruebaclass1.camilo.pruebaclass1.DataBaseTemasManager;
-import com.pruebaclass1.camilo.pruebaclass1.R;
+import com.pruebaclass1.camilo.StackOverflow.DataBaseTemasManager;
+import com.pruebaclass1.camilo.StackOverflow.R;
 
 
 /**
@@ -68,7 +60,7 @@ public class Tema {
         ctx=context;
     }
 
-    //probando
+
     public ViewGroup renderizar()
     {
         ViewGroup vg = null;

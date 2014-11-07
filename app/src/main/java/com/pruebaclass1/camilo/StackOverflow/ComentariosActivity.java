@@ -1,4 +1,4 @@
-package com.pruebaclass1.camilo.pruebaclass1;
+package com.pruebaclass1.camilo.StackOverflow;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,6 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.TextView;
 
 
 public class ComentariosActivity extends Activity {

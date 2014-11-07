@@ -1,4 +1,4 @@
-package com.pruebaclass1.camilo.pruebaclass1;
+package com.pruebaclass1.camilo.StackOverflow;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

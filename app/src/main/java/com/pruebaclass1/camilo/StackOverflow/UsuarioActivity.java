@@ -1,4 +1,4 @@
-package com.pruebaclass1.camilo.pruebaclass1;
+package com.pruebaclass1.camilo.StackOverflow;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,37 +8,37 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-
-public class UsuarioRespuestaActivity extends Activity {
+public class UsuarioActivity extends Activity {
 
     String valorRecibido;
     private TextView nombre;
     private TextView fecha;
-    DataBaseComentariosManager manager;
+    DataBaseTemasManager manager;
     Cursor cursor;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_usuariorespuesta);
+        setContentView(R.layout.activity_usuario);
 
-        manager = new DataBaseComentariosManager(this);
-        valorRecibido=getIntent().getStringExtra(ComentariosActivity.ID_COMENTARIO_PASAR);
+        manager = new DataBaseTemasManager(this);
+        valorRecibido=getIntent().getStringExtra(MainActivity.ID_TEMA_PASAR);
 
         //Toast.makeText(getApplicationContext(), "Has seleccionado: "+ valorRecibido, Toast.LENGTH_LONG).show();
 
-        cursor = manager.traerUsuarioRespuesta(valorRecibido);
+        cursor = manager.traerUsuarioTema(valorRecibido);
 
         cursor.moveToPosition(0);//Linea vital
-        String name = cursor.getString(cursor.getColumnIndex("nombrePropietario"));
+        String name = cursor.getString(cursor.getColumnIndex("nombreCreador"));
         String fe = cursor.getString(cursor.getColumnIndex("fechaCreado"));
 
         nombre = (TextView) findViewById(R.id.textView);
         nombre.setText("Nombre del usuario: "+name);
 
         fecha = (TextView) findViewById(R.id.textView2);
-        fecha.setText("Fecha respuesta: "+fe);
+        fecha.setText("Fecha creación del tema: "+fe);
+
+
     }
 
 

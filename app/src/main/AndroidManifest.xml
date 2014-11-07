@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.pruebaclass1.camilo.pruebaclass1" >
+    package="com.pruebaclass1.camilo.StackOverflow" >
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Tecno" >
         <activity
-            android:name=".SplashScreenActivity"
+            android:name="com.pruebaclass1.camilo.StackOverflow.SplashScreenActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,57 +17,57 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.pruebaclass1.camilo.StackOverflow.MainActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name=".AyudaActivity"
+            android:name="com.pruebaclass1.camilo.StackOverflow.AyudaActivity"
             android:label="Ayuda"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName="com.pruebaclass1.camilo.StackOverflow.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".NuevoActivity"
+            android:name="com.pruebaclass1.camilo.StackOverflow.NuevoActivity"
             android:label="Crear Pregunta"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName="com.pruebaclass1.camilo.StackOverflow.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".BuscarActivity"
+            android:name="com.pruebaclass1.camilo.StackOverflow.BuscarActivity"
             android:label="@string/title_activity_buscar" >
         </activity>
         <activity
-            android:name=".ComentariosActivity"
+            android:name="com.pruebaclass1.camilo.StackOverflow.ComentariosActivity"
             android:label="Respuestas"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName="com.pruebaclass1.camilo.StackOverflow.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".UsuarioActivity"
+            android:name="com.pruebaclass1.camilo.StackOverflow.UsuarioActivity"
             android:label="Datos de la pregunta"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName="com.pruebaclass1.camilo.StackOverflow.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".TutorialActivity"
+            android:name="com.pruebaclass1.camilo.StackOverflow.TutorialActivity"
             android:label="Tutorial"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName="com.pruebaclass1.camilo.StackOverflow.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".UsuarioRespuestaActivity"
+            android:name="com.pruebaclass1.camilo.StackOverflow.UsuarioRespuestaActivity"
             android:label="Datos de la respuesta"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName="com.pruebaclass1.camilo.StackOverflow.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />

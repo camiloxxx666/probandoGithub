@@ -1,4 +1,4 @@
-package com.pruebaclass1.camilo.pruebaclass1.dummy;
+package com.pruebaclass1.camilo.StackOverflow.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;

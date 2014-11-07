@@ -1,4 +1,4 @@
-package com.pruebaclass1.camilo.pruebaclass1;
+package com.pruebaclass1.camilo.StackOverflow;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,9 +7,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
-
-import com.pruebaclass1.camilo.pruebaclass1.modelo.Tema;
 
 
 public class NuevoActivity extends Activity {
