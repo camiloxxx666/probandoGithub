@@ -22,6 +22,7 @@
         </activity>
         <activity
             android:name=".AyudaActivity"
+            android:label="Ayuda"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -29,6 +30,7 @@
         </activity>
         <activity
             android:name=".NuevoActivity"
+            android:label="Crear Pregunta"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -40,14 +42,23 @@
         </activity>
         <activity
             android:name=".ComentariosActivity"
-            android:label="@string/title_activity_comentarios" >
+            android:label="Respuestas"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".UsuarioActivity"
-            android:label="@string/title_activity_usuario" >
+            android:label="Datos de la pregunta"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".TutorialActivity"
+            android:label="Tutorial"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -55,7 +66,11 @@
         </activity>
         <activity
             android:name=".UsuarioRespuestaActivity"
-            android:label="@string/title_activity_usuario_respuesta" >
+            android:label="Datos de la respuesta"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
     </application>
 

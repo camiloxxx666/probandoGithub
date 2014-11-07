@@ -96,14 +96,6 @@ public class ComentariosActivity extends Activity {
 
     }
 
-
-
-
-
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -116,10 +108,26 @@ public class ComentariosActivity extends Activity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+
+            case R.id.action_nuevo:
+                Intent i = new Intent(getApplicationContext(), NuevoActivity.class);
+                startActivity(i);
+                return true;
+
+            case R.id.action_tutorial:
+                Intent i2 = new Intent(getApplicationContext(), TutorialActivity.class);
+                startActivity(i2);
+                return true;
+
+            case R.id.action_ayuda:
+                Intent i3 = new Intent(getApplicationContext(), AyudaActivity.class);
+                startActivity(i3);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
         }
-        return super.onOptionsItemSelected(item);
     }
 }
