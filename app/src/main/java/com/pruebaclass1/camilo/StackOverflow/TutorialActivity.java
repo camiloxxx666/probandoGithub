@@ -44,7 +44,7 @@ public class TutorialActivity extends Activity {
 
         mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(4, getResources().getColor(R.color.android_blue), R.drawable.imagen1));
         mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(5, getResources().getColor(R.color.android_darkpurple), R.drawable.imagen2));
-        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(2, getResources().getColor(R.color.android_orange), R.drawable.imagen3));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(2, getResources().getColor(R.color.android_darkpink), R.drawable.imagen3));
 
         mViewPager.setAdapter(mSectionsPagerAdapter);
     }

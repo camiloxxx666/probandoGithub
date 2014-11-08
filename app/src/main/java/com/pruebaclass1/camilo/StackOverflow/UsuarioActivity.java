@@ -36,7 +36,7 @@ public class UsuarioActivity extends Activity {
         nombre.setText("Nombre del usuario: "+name);
 
         fecha = (TextView) findViewById(R.id.textView2);
-        fecha.setText("Fecha creación del tema: "+fe);
+        fecha.setText("Fecha creación: "+fe);
 
 
     }
