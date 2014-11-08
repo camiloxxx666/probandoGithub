@@ -36,7 +36,7 @@
                 android:paddingLeft="20dp">
 
                 <EditText
-                    android:layout_width="200dp"
+                    android:layout_width="219dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/editText"
                     android:textColor="@color/black"
@@ -67,7 +67,7 @@
                 android:paddingLeft="20dp">
 
                 <EditText
-                    android:layout_width="200dp"
+                    android:layout_width="215dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/editText2"
                     android:textColor="@color/black"
@@ -97,7 +97,7 @@
                 android:paddingLeft="20dp">
 
                 <EditText
-                    android:layout_width="200dp"
+                    android:layout_width="215dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/editText3"
                     android:textColor="@color/black"
@@ -173,7 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:paddingTop="30dp">
+                android:paddingTop="25dp">
 
                 <Button
                     android:layout_width="wrap_content"
@@ -181,7 +181,7 @@
                     android:text="Finalizar"
                     android:id="@+id/button"
                     android:onClick="crearTema"
-                    android:textColor="@color/android_darkorange" />
+                    android:background="@color/android_darkorange" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

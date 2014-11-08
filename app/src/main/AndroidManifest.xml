@@ -38,7 +38,11 @@
         </activity>
         <activity
             android:name=".BuscarActivity"
-            android:label="@string/title_activity_buscar" >
+            android:label="Buscar"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".ComentariosActivity"
@@ -73,12 +77,12 @@
                 android:value=".MainActivity" />
         </activity>
         <activity
-            android:name=".ResultadosActivity"
-            android:label="@string/title_activity_resultados" >
-        </activity>
-        <activity
             android:name=".ResultadoActivity"
-            android:label="@string/title_activity_resultado" >
+            android:label="Resultado"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
     </application>
 
