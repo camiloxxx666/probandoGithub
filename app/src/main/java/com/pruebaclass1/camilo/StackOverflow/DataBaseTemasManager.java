@@ -3,6 +3,7 @@ package com.pruebaclass1.camilo.StackOverflow;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.MergeCursor;
 import android.database.sqlite.SQLiteDatabase;
 
 /**
@@ -66,5 +67,21 @@ public class DataBaseTemasManager
     {
         String[] columnas = new String[]{CN_NOMBRE_PROPIETARIO_TEMAS, CN_FECHA_TEMAS};
         return db.query(TABLE_NAME_TEMAS,columnas,ID_TEMAS + "=?",new String[]{idTema},null,null,null);
+    }
+
+    public Cursor buscarTemas(String clave)
+    {
+        String[] columnas = new String[]{ID_TEMAS,CN_TITULO_TEMAS, CN_TEXTO_TEMAS};
+        Cursor cur1 = db.query(TABLE_NAME_TEMAS,columnas,CN_NOMBRE_PROPIETARIO_TEMAS + "=?",new String[]{clave},null,null,null);
+
+        String[] columnas2 = new String[]{ID_TEMAS,CN_TITULO_TEMAS, CN_TEXTO_TEMAS};
+        Cursor cur2 = db.query(TABLE_NAME_TEMAS,columnas2,CN_FECHA_TEMAS + "=?",new String[]{clave},null,null,null);
+
+        Cursor[] cursores = new Cursor[]{cur1, cur2};
+        MergeCursor mc = new MergeCursor(cursores);
+        return mc;
+
+        //esto es una prueba por ahora
+
     }
 }
