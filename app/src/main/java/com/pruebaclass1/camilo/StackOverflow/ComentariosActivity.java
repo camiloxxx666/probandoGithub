@@ -37,7 +37,7 @@ public class ComentariosActivity extends Activity {
         String[] from = new String[]{"texto"};
         int[] to = {R.id.textView_superior2};
 
-        adapter = new SimpleCursorAdapter(this, R.layout.entrada2, cursor, from, to, 0);//contecto, layoutID, cursor, from, to
+        adapter = new SimpleCursorAdapter(this, R.layout.entrada2, cursor, from, to, 0);
         listView.setAdapter(adapter);
 
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {

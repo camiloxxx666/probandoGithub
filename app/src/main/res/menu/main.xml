@@ -9,6 +9,13 @@
     </item>
 
     <item
+        android:id="@+id/action_buscar"
+        android:showAsAction="ifRoom|withText"
+        android:title="nuevo"
+        android:icon="@drawable/ic_action_search">
+    </item>
+
+    <item
         android:id="@+id/action_tutorial"
         android:title="Tutorial"
         android:orderInCategory="100"
@@ -18,5 +25,6 @@
         android:title="Ayuda"
         android:orderInCategory="100"
         android:showAsAction="never" />
+
 
 </menu>

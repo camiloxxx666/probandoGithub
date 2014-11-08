@@ -6,9 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 
 public class BuscarActivity extends Activity {
+
+    public static String aBuscar = "";
+    public static boolean datos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,21 +20,13 @@ public class BuscarActivity extends Activity {
         setContentView(R.layout.activity_buscar);
     }
 
-    public void irNuevo(View v)
-    {
-        Intent i = new Intent(BuscarActivity.this, NuevoActivity.class);
-        startActivity(i);
-    }
 
-    public void irTemas(View v)
+    public void irResultados(View v)
     {
-        Intent i = new Intent(BuscarActivity.this, MainActivity.class);
-        startActivity(i);
-    }
+        String bus = (String)((EditText)findViewById(R.id.editText)).getText().toString();
 
-    public void irAyuda(View v)
-    {
-        Intent i = new Intent(BuscarActivity.this, AyudaActivity.class);
+        Intent i = new Intent(BuscarActivity.this, ResultadoActivity.class);
+        i.putExtra(aBuscar, bus);
         startActivity(i);
     }
 

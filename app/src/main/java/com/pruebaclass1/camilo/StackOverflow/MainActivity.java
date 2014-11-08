@@ -1,14 +1,20 @@
 package com.pruebaclass1.camilo.StackOverflow;
 
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
+import android.widget.SimpleCursorAdapter;
 
 import com.pruebaclass1.camilo.StackOverflow.modelo.Tema;
 
@@ -23,12 +29,12 @@ public class MainActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Tema tema = new Tema();
-        tema.setContext(this);
-        ViewGroup cont = tema.renderizar();
-        setContentView(cont);
+            Tema tema = new Tema();
+            tema.setContext(this);
+            ViewGroup cont = tema.renderizar();
+            setContentView(cont);
 
-        listview = (ListView)findViewById(R.id.listView);
+        listview = (ListView) findViewById(R.id.listView);
         listview.setOnItemClickListener(onListClick);
         listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
@@ -43,7 +49,6 @@ public class MainActivity extends Activity
         });
 
     }
-
 
     private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener()
     {
@@ -62,14 +67,19 @@ public class MainActivity extends Activity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
+
         return true;
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+
+
         switch (item.getItemId()) {
 
             case R.id.action_nuevo:
@@ -85,6 +95,10 @@ public class MainActivity extends Activity
             case R.id.action_ayuda:
                 Intent i3 = new Intent(getApplicationContext(), AyudaActivity.class);
                 startActivity(i3);
+                return true;
+            case R.id.action_buscar:
+                Intent i4 = new Intent(getApplicationContext(), BuscarActivity.class);
+                startActivity(i4);
                 return true;
 
             default:
