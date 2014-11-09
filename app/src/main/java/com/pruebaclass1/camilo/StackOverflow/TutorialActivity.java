@@ -69,6 +69,11 @@ public class TutorialActivity extends Activity {
                 startActivity(i);
                 return true;
 
+            case R.id.action_buscar:
+                Intent i4 = new Intent(getApplicationContext(), BuscarActivity.class);
+                startActivity(i4);
+                return true;
+
             case R.id.action_tutorial:
                 Intent i2 = new Intent(getApplicationContext(), TutorialActivity.class);
                 startActivity(i2);

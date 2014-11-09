@@ -87,6 +87,11 @@ public class MainActivity extends Activity
                 startActivity(i);
                 return true;
 
+            case R.id.action_buscar:
+                Intent i4 = new Intent(getApplicationContext(), BuscarActivity.class);
+                startActivity(i4);
+                return true;
+
             case R.id.action_tutorial:
                 Intent i2 = new Intent(getApplicationContext(), TutorialActivity.class);
                 startActivity(i2);
@@ -95,10 +100,6 @@ public class MainActivity extends Activity
             case R.id.action_ayuda:
                 Intent i3 = new Intent(getApplicationContext(), AyudaActivity.class);
                 startActivity(i3);
-                return true;
-            case R.id.action_buscar:
-                Intent i4 = new Intent(getApplicationContext(), BuscarActivity.class);
-                startActivity(i4);
                 return true;
 
             default:
