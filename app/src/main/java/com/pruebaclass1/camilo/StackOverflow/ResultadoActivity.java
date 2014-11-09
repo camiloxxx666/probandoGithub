@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 import com.pruebaclass1.camilo.StackOverflow.R;
 
@@ -29,28 +30,33 @@ public class ResultadoActivity extends Activity {
         listView = (ListView) findViewById(R.id.listView);
 
         manager = new DataBaseTemasManager(this);
-
         cursor = manager.buscarTemas(valorRecibido);
 
-        String[] from = new String[]{"titulo", "texto"};
-        int[] to = {R.id.textView_superior, R.id.textView_inferior};
+        if (cursor.moveToFirst() == false){
+            TextView noHayRespuestas = (TextView) findViewById(R.id.textView1);
+            noHayRespuestas.setText("No hay resultados para: "+valorRecibido);
 
-        adapter = new SimpleCursorAdapter(this, R.layout.entrada, cursor, from, to, 0);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(onListClick);
+        }
+        else {
+            String[] from = new String[]{"titulo", "texto"};
+            int[] to = {R.id.textView_superior, R.id.textView_inferior};
 
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            adapter = new SimpleCursorAdapter(this, R.layout.entrada, cursor, from, to, 0);
+            listView.setAdapter(adapter);
+            listView.setOnItemClickListener(onListClick);
 
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-                                           int pos, long id) {
-                Intent i = new Intent(ResultadoActivity.this, UsuarioActivity.class);
-                i.putExtra(ID_TEMA_PASAR, String.valueOf(id));
-                startActivity(i);
+            listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
-                return true;
-            }
-        });
+                public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+                                               int pos, long id) {
+                    Intent i = new Intent(ResultadoActivity.this, UsuarioActivity.class);
+                    i.putExtra(ID_TEMA_PASAR, String.valueOf(id));
+                    startActivity(i);
 
+                    return true;
+                }
+            });
+        }
     }
 
     private AdapterView.OnItemClickListener onListClick = new AdapterView.OnItemClickListener()
