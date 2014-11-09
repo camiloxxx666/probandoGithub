@@ -3,6 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:theme="@android:style/Theme.Holo"
     style="@style/Theme.Tecno">
 
     <LinearLayout
@@ -16,9 +17,11 @@
             android:id="@+id/textView_superior"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Large Text"
+            android:text="Normal Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor= "@color/android_darkorange" />
+            android:textColor= "#CE5F1A"
+            android:textSize="16dp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/textView_inferior"
@@ -26,7 +29,8 @@
             android:layout_height="wrap_content"
             android:text="Small Text"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor= "@color/android_orange"/>
+            android:textColor= "@color/android_darkorange"
+            android:textSize="13dp"/>
 
     </LinearLayout>
 

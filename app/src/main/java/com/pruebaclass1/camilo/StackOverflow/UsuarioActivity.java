@@ -32,7 +32,7 @@ public class UsuarioActivity extends Activity {
         String name = cursor.getString(cursor.getColumnIndex("nombreCreador"));
         String fe = cursor.getString(cursor.getColumnIndex("fechaCreado"));
 
-        nombre = (TextView) findViewById(R.id.textView);
+        nombre = (TextView) findViewById(R.id.preguntaTextView);
         nombre.setText("Nombre del usuario: "+name);
 
         fecha = (TextView) findViewById(R.id.textView2);

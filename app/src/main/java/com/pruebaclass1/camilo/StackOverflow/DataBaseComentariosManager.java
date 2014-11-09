@@ -74,4 +74,5 @@ public class DataBaseComentariosManager
         return db.query(TABLE_NAME_COMENTARIO,columnas,ID_COMENTARIO + "=?",new String[]{idRespuesta},null,null,null);
     }
 
+
 }

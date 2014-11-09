@@ -81,7 +81,14 @@ public class DataBaseTemasManager
         MergeCursor mc = new MergeCursor(cursores);
         return mc;
 
-        //esto es una prueba por ahora
+    }
 
+    public String getTexto(String clave)
+    {
+        String[] columnas = new String[]{ID_TEMAS, CN_TEXTO_TEMAS};
+
+        Cursor cursor =  db.query(TABLE_NAME_TEMAS,columnas,ID_TEMAS + "=?",new String[]{clave},null,null,null);
+        cursor.moveToPosition(0);
+        return cursor.getString(cursor.getColumnIndex("texto"));
     }
 }

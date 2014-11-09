@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.TextView;
 
 
 public class ComentariosActivity extends Activity {
@@ -18,6 +19,7 @@ public class ComentariosActivity extends Activity {
     public final static String ID_COMENTARIO_PASAR = "com.pruebaclass1.camilo.pruebaclass1._id";
     String valorRecibido;
     DataBaseComentariosManager manager;
+    DataBaseTemasManager manager2;
     Cursor cursor;
     SimpleCursorAdapter adapter;
     ListView listView;
@@ -26,31 +28,46 @@ public class ComentariosActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comentarios);
+        valorRecibido=getIntent().getStringExtra(MainActivity.ID_TEMA_PASAR);
 
+        //Seteando la pregunta:
+
+        manager2 = new DataBaseTemasManager(this);
+        String preg = manager2.getTexto(valorRecibido);
+        TextView tvPregunta = (TextView) findViewById(R.id.preguntaTextView);
+        tvPregunta.setText(preg);
+
+        //Armando la lista:
         listView = (ListView) findViewById(R.id.listView);
 
         manager = new DataBaseComentariosManager(this);
-        valorRecibido=getIntent().getStringExtra(MainActivity.ID_TEMA_PASAR);
-
         cursor = manager.traerRespuestas(valorRecibido);
 
-        String[] from = new String[]{"texto"};
-        int[] to = {R.id.textView_superior2};
+        if (cursor.moveToFirst() == false){
+            TextView noHayRespuestas = (TextView) findViewById(R.id.textView1);
+            noHayRespuestas.setText("Este tema aún no tiene respuestas, sé el primero en responder: ");
 
-        adapter = new SimpleCursorAdapter(this, R.layout.entrada2, cursor, from, to, 0);
-        listView.setAdapter(adapter);
+        }
+        else {
 
-        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            String[] from = new String[]{"texto"};
+            int[] to = {R.id.textView_superior2};
 
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
-                                           int pos, long id) {
-                Intent i = new Intent(ComentariosActivity.this, UsuarioRespuestaActivity.class);
-                i.putExtra(ID_COMENTARIO_PASAR, String.valueOf(id));
-                startActivity(i);
+            adapter = new SimpleCursorAdapter(this, R.layout.entrada2, cursor, from, to, 0);
+            listView.setAdapter(adapter);
 
-                return true;
-            }
-        });
+            listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+                public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+                                               int pos, long id) {
+                    Intent i = new Intent(ComentariosActivity.this, UsuarioRespuestaActivity.class);
+                    i.putExtra(ID_COMENTARIO_PASAR, String.valueOf(id));
+                    startActivity(i);
+
+                    return true;
+                }
+            });
+        }
 
     }
 

@@ -17,7 +17,9 @@
             android:layout_height="wrap_content"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor= "@color/android_darkorange"/>
+            android:textColor= "#CE5F1A"
+            android:textSize="16dp"
+            android:textStyle="bold"/>
 
 
 

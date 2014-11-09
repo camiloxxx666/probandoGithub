@@ -8,6 +8,7 @@
     android:orientation="vertical">
 
     <ScrollView
+
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
         <LinearLayout
@@ -20,8 +21,9 @@
                 android:layout_height="550dp"
                 android:id="@+id/listView"
                 android:layout_centerHorizontal="true"
-                android:dividerHeight="@dimen/activity_horizontal_margin"
-                android:divider="#ceffba2e" />
+                android:dividerHeight="2px"
+                android:divider="#eee"
+                android:padding="6px"/>
         </LinearLayout>
     </ScrollView>
 

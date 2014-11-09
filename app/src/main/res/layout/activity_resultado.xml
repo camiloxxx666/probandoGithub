@@ -19,12 +19,12 @@
 
             <ListView
                 android:layout_width="wrap_content"
-                android:layout_height="500dp"
+                android:layout_height="550dp"
                 android:id="@+id/listView"
-                android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:divider="#ceffba2e"
-                android:dividerHeight="@dimen/activity_horizontal_margin" />
+                android:divider="#eee"
+                android:dividerHeight="2px"
+                android:padding="6px"/>
         </LinearLayout>
     </ScrollView>
 
