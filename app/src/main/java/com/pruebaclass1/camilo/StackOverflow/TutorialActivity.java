@@ -31,6 +31,16 @@ public class TutorialActivity extends Activity {
             R.drawable.imagen1,
             R.drawable.imagen2,
             R.drawable.imagen3,
+            R.drawable.imagen4,
+            R.drawable.imagen5,
+            R.drawable.imagen6,
+            R.drawable.imagen7,
+            R.drawable.imagen8,
+            R.drawable.imagen9,
+            R.drawable.imagen10,
+            R.drawable.imagen11,
+            R.drawable.imagen12,
+            R.drawable.imagen13,
     };
 
     @Override
@@ -42,9 +52,19 @@ public class TutorialActivity extends Activity {
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
 
-        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(4, getResources().getColor(R.color.android_blue), R.drawable.imagen1));
-        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(5, getResources().getColor(R.color.android_darkpurple), R.drawable.imagen2));
-        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(2, getResources().getColor(R.color.android_darkpink), R.drawable.imagen3));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen1));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen2));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen3));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen4));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen5));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen6));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen7));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen8));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen9));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen10));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen11));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen12));
+        mSectionsPagerAdapter.addFragment(PlaceholderFragment.newInstance(getResources().getColor(R.color.android_orange), R.drawable.imagen13));
 
         mViewPager.setAdapter(mSectionsPagerAdapter);
     }
@@ -137,17 +157,14 @@ public class TutorialActivity extends Activity {
      */
     public static class PlaceholderFragment extends Fragment {
 
-        private static final String ARG_SECTION_NUMBER = "section_number";
         private static final String BACKGROUND_COLOR = "color";
         private static final String IMAGEVIEW = "image";
-        private int section_number;
         private int color;
         private int image;
 
-        public static PlaceholderFragment newInstance(int sectionNumber, int color, int image) {
+        public static PlaceholderFragment newInstance(int color, int image) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             args.putInt(BACKGROUND_COLOR, color); //agrego color de fondo
             args.putInt(IMAGEVIEW, image); //agrego imagen
             fragment.setArguments(args);
@@ -162,12 +179,10 @@ public class TutorialActivity extends Activity {
             //si lo enviamos parametros, guarda esos
             //si no le envio nada, toma el color gris y un número aleatroio
             if (getArguments() != null) {
-                this.section_number = getArguments().getInt(ARG_SECTION_NUMBER);
                 this.color = getArguments().getInt(BACKGROUND_COLOR);
                 this.image = getArguments().getInt(IMAGEVIEW);
             } else {
                 this.color = Color.GRAY;
-                this.section_number = (int) (Math.random() * 5);
             }
         }
 
@@ -179,8 +194,6 @@ public class TutorialActivity extends Activity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_tutorial, container, false);
 
-            TextView tv_section = (TextView) rootView.findViewById(R.id.tv_section_label);
-            tv_section.setText("" + section_number);
             rootView.setBackgroundColor(this.color);
             ImageView frg_image = (ImageView) rootView.findViewById(R.id.frg_imageView);
             frg_image.setImageResource(image);
