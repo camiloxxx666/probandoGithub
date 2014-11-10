@@ -30,8 +30,8 @@ public class DataBaseComentariosManager
     public static final String CN_ID_TEMAS = "_id";
 
     public static final String CREATE_TABLE_COMENTARIO = " create table " + TABLE_NAME_COMENTARIO + " ( "
-                                                        + CN_TEMA_FK_COMENTARIO + " integer NOT NULL, "
                                                         + ID_COMENTARIO + " integer primary key autoincrement, "
+                                                        + CN_TEMA_FK_COMENTARIO + " integer NOT NULL, "
                                                         + CN_PROPIETARIO_COMENTARIO + " text NOT NULL, "
                                                         + CN_TEXTO_COMENTARIO + " text NOT NULL, "
                                                         + CN_EMAIL_COMENTARIO + " text NOT NULL, "
@@ -55,7 +55,6 @@ public class DataBaseComentariosManager
         valores.put(CN_TEXTO_COMENTARIO, respuesta);
         valores.put(CN_FECHA_COMENTARIO, fecha);
         valores.put(CN_EMAIL_COMENTARIO, email);
-        valores.put(CN_ID_TEMAS, idTema);
         valores.put(CN_TEMA_FK_COMENTARIO, idTema);
 
 
