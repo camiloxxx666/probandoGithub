@@ -16,8 +16,12 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SimpleCursorAdapter;
 
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
 import com.pruebaclass1.camilo.StackOverflow.modelo.Tema;
 
+import java.io.InputStream;
 
 
 public class MainActivity extends Activity
@@ -47,6 +51,21 @@ public class MainActivity extends Activity
                 return true;
             }
         });
+
+/*       try {
+            HttpResponse<InputStream> response = Unirest.post("https://neutrinoapi-qr-code.p.mashape.com/qr-code")
+                    .header("X-Mashape-Key", "j2l3mVOGr5mshF4TvvQgnGD2Vbbxp1w2BrFjsnYY2jGsY6Kcw0")
+                    .header("Content-Type", "application/x-www-form-urlencoded")
+                    .field("bg-color", "#ffffff")
+                    .field("content", "Damian")
+                    .field("fg-color", "#000000")
+                    .field("height", 400)
+                    .field("width", 400)
+                    .asBinary();
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        }
+*/
 
     }
 
