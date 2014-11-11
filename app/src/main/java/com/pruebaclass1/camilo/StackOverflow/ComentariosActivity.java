@@ -12,12 +12,13 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class ComentariosActivity extends Activity {
 
     public final static String ID_COMENTARIO_PASAR = "com.pruebaclass1.camilo.pruebaclass1._id";
-    String valorRecibido;
+    //String valorRecibido;
     DataBaseComentariosManager manager;
     DataBaseTemasManager manager2;
     Cursor cursor;
@@ -28,7 +29,7 @@ public class ComentariosActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comentarios);
-        valorRecibido=getIntent().getStringExtra(MainActivity.ID_TEMA_PASAR);
+        String valorRecibido=getIntent().getStringExtra(MainActivity.ID_TEMA_PASAR);
 
         //Seteando la pregunta:
 
@@ -49,7 +50,7 @@ public class ComentariosActivity extends Activity {
 
         }
         else {
-
+            //cursor = manager.traerRespuestas(valorRecibido);
             String[] from = new String[]{"texto"};
             int[] to = {R.id.textView_superior2};
 
@@ -74,6 +75,8 @@ public class ComentariosActivity extends Activity {
 
     public void crearRespuesta(View v)
     {
+        String valorRecibido=getIntent().getStringExtra(MainActivity.ID_TEMA_PASAR);
+
         EditText etNombre = (EditText)findViewById(R.id.editText1);
         EditText etRespuesta = (EditText)findViewById(R.id.editText2);
         EditText etFecha = (EditText)findViewById(R.id.editText3);

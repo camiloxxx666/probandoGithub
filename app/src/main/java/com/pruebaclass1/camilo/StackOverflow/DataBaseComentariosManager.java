@@ -30,13 +30,13 @@ public class DataBaseComentariosManager
     public static final String CN_ID_TEMAS = "_id";
 
     public static final String CREATE_TABLE_COMENTARIO = " create table " + TABLE_NAME_COMENTARIO + " ( "
-                                                        + ID_COMENTARIO + " integer primary key autoincrement, "
-                                                        + CN_TEMA_FK_COMENTARIO + " integer NOT NULL, "
-                                                        + CN_PROPIETARIO_COMENTARIO + " text NOT NULL, "
-                                                        + CN_TEXTO_COMENTARIO + " text NOT NULL, "
-                                                        + CN_EMAIL_COMENTARIO + " text NOT NULL, "
-                                                        + CN_FECHA_COMENTARIO + " text NOT NULL, "
-                                                        + "FOREIGN KEY (" + CN_TEMA_FK_COMENTARIO +") REFERENCES " + TABLE_NAME_TEMAS +" (" + CN_ID_TEMAS + ") );";
+            + CN_TEMA_FK_COMENTARIO + " integer NOT NULL, "
+            + ID_COMENTARIO + " integer primary key autoincrement, "
+            + CN_PROPIETARIO_COMENTARIO + " text NOT NULL, "
+            + CN_TEXTO_COMENTARIO + " text NOT NULL, "
+            + CN_EMAIL_COMENTARIO + " text NOT NULL, "
+            + CN_FECHA_COMENTARIO + " text NOT NULL, "
+            + "FOREIGN KEY (" + CN_TEMA_FK_COMENTARIO +") REFERENCES " + TABLE_NAME_TEMAS +" (" + CN_ID_TEMAS + ") );";
 
 
     private DbHelper helper;
@@ -64,7 +64,7 @@ public class DataBaseComentariosManager
     public Cursor traerRespuestas(String idTema)
     {
         String[] columnas = new String[]{ID_COMENTARIO, CN_TEXTO_COMENTARIO};
-        return db.query(TABLE_NAME_COMENTARIO,columnas,CN_ID_TEMAS + "=?",new String[]{idTema},null,null,null);
+        return db.query(TABLE_NAME_COMENTARIO,columnas,CN_TEMA_FK_COMENTARIO + "=?",new String[]{idTema},null,null,null);
     }
 
     public Cursor traerUsuarioRespuesta(String idRespuesta)
